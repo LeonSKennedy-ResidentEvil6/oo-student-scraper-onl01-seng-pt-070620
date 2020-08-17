@@ -11,7 +11,7 @@ class Student
 
   def self.create_from_collection(student_array)
     student_array.each do |student_hash|
-      binding.pry
+
       self.new(student_hash)
     end
 
