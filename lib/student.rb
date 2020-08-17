@@ -11,6 +11,7 @@ class Student
 
   def self.create_from_collection(student_index_array)
     new_student = Scraper.new("students_array")
+    binding.pry
     @@all << new_student
 
   end
