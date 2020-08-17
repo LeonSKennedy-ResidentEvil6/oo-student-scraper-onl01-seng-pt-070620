@@ -5,11 +5,11 @@ class Student
   @@all = []
 
   def initialize(student_hash)
-    @@all << self
+    student_hash
   end
 
   def self.create_from_collection(students_array)
-    
+
   end
 
   def add_student_attributes(attributes_hash)
