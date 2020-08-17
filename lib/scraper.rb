@@ -30,6 +30,7 @@ class Scraper
     scraped_student = {}
     # scrap student's profile page
     html = Nokogiri::HTML.parse(open(profile_url))
+    
     social_link = html.css("div.main-wrapper.profile").css("div.vitals-container").css("div.social-icon-container").css("a")
 binding.pry
     # scrap each different social media link if there is one
