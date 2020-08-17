@@ -13,7 +13,7 @@ class Student
     student_array.each do |student_hash|
       binding.pry
       self.new(student_hash)
-    end 
+    end
 
   end
 
