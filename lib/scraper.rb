@@ -18,7 +18,7 @@ class Scraper
       student_profile[:profile_url] = student_profile_url
       scraped_students << student_profile
     end
-    student
+    scraped_students
   end
 
 
