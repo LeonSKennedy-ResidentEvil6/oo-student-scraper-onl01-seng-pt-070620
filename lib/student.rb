@@ -10,9 +10,6 @@ class Student
   end
 
   def self.create_from_collection(student_array)
-    new_student = Scraper.new("students_array")
-    binding.pry
-    @@all << new_student
 
   end
 
