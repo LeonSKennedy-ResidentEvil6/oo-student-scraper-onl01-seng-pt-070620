@@ -36,7 +36,7 @@ class Scraper
             scraped_student[:linkedin] = social.attribute("href").value
           elsif social.attribute("href").value.include?("github")
               scraped_student[:github] = social.attribute("href").value
-            else social.attribute("href").value.include?("blog")
+            else
                 scraped_student[:blog] = social.attribute("href").value
             end
           end
