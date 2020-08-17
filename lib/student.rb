@@ -9,7 +9,7 @@ class Student
     @@all << self
   end
 
-  def self.create_from_collection(students_array)
+  def self.create_from_collection(student_index_array)
     new_student = Scraper.new("students_array")
     @@all << new_student
 
