@@ -23,28 +23,28 @@ class Scraper
 
 
   def self.scrape_profile_page(profile_url)
-      # create am empty hash to store keys/values of each student social profile
-      scraped_student = {}
-      # scrap student's profile page
-      html = Nokogiri::HTML(open(profile_url))
-      social_link = html.css("div.main-wrapper.profile").css("div.rvitals-container").css("div.social-icon-container").css("a")
-      # scrap each different social media link if there is one
-      social_link.each do |social|
-        if social.attribute("href").value.include?("twitter")
-          scraped_student[:twitter] = social.attribute("href").value
-        elsif social.attribute("href").value.include?("linkedin")
-            scraped_student[:linkedin] = social.attribute("href").value
-          elsif social.attribute("href").value.include?("github")
-              scraped_student[:github] = social.attribute("href").value
-            else
-              scraped_student[:blog] = social.attribute("href").value
-            end
-          end
+    # create am empty hash to store keys/values of each student social profile
+    scraped_student = {}
+    # scrap student's profile page
+    html = Nokogiri::HTML(open(profile_url))
+    social_link = html.css("div.main-wrapper.profile").css("div.rvitals-container").css("div.social-icon-container").css("a")
+    # scrap each different social media link if there is one
+    social_link.each do |social|
+      if social.attribute("href").value.include?("twitter")
+        scraped_student[:twitter] = social.attribute("href").value
+      elsif social.attribute("href").value.include?("linkedin")
+        scraped_student[:linkedin] = social.attribute("href").value
+      elsif social.attribute("href").value.include?("github")
+        scraped_student[:github] = social.attribute("href").value
+      else
+        scraped_student[:blog] = social.attribute("href").value
+      end
+    end
 
-      social_media[:profile_quote] = social_link.css("div.main-wrapper.profile").css("div.details-container").css("div.bio-content.content-holder").text
-      social_media[:bio] = social_link.css("div.main-wrapper.profile").css("div.details-container").css("div.profile-quote").text
+    social_media[:profile_quote] = social_link.css("div.main-wrapper.profile").css("div.details-container").css("div.bio-content.content-holder").text
+    social_media[:bio] = social_link.css("div.main-wrapper.profile").css("div.details-container").css("div.profile-quote").text
 
-      scraped_student
+    scraped_student
   end
 
 end
