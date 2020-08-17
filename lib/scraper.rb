@@ -7,7 +7,7 @@ class Scraper
 
   def self.scrape_index_page(index_url)
     scraped_students = []
-    #html = open(index_url)
+    
     doc = Nokogiri::HTML.parse(open(index_url))
 
     doc.css("div.student-card").each do |student|
