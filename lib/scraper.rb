@@ -26,7 +26,7 @@ class Scraper
       # create am empty hash to store keys/values of each student social profile
       scraped_student = {}
       # scrap student's profile page
-      social_link = Nokogiri::HTML(open(profile_url))
+      html = Nokogiri::HTML(open(profile_url))
       social_link.css("div.main-wrapper.profile").css("div.rvitals-container").css("div.social-icon-container").css("a")
       # scrap each different social media link if there is one
       social_link.each do |social|
