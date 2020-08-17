@@ -12,8 +12,9 @@ class Scraper
 
     doc.css("div.student-card").each do |student|
       student_profile = {}
-      student_profile[:location] = student.css("p.student-location").text
       student_profile[:name] = student.css("h4.student-name").text
+      student_profile[:location] = student.css("p.student-location").text
+      
       student_profile_url = student.css("a").map {||link| link['href']}
       student_profile[:profile_url] = student_profile_url
       scraped_students.push(student_profile)
