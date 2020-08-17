@@ -45,7 +45,7 @@ class Scraper
 
 
     scraped_student[:profile_quote] = html.css("div.main-wrapper.profile").css("div.vitals-container").css("div.profile-quote").text
-    scraped_student[:bio] = html.css("div.main-wrapper.profile").css("div.details-container").css("div.description-holder").text
+    scraped_student[:bio] = html.css("div.main-wrapper.profile").css("div.details-container").css("div.description-holder").css("p").text
   binding.pry
     scraped_student
   end
